@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Коля Ткаченко</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.7.8/plyr.css"/>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/plyr-restyle.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/5.0.0/imagesloaded.pkgd.min.js"></script>
+    <script src="https://cdn.plyr.io/3.7.8/plyr.js"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.5/lib/p5.min.js"></script>
+    <script src="js/sketch.js" type="text/javascript"></script>
+    <script src="js/script.js" type="text/javascript"></script>
+</head>
+
+<body>  
+
+    <div id="drawing-canvas"></div>
+    <div id="custom-cursor"></div>
+
+    <div id="playerContainer">
+        <audio id="player" controls controlsList="nodownload noplaybackrate">
+            <source src="" type="audio/mpeg">
+        </audio>
+        <img class="close-btn" onclick="closePlayer()" src="icons/MaterialSymbolsCloseRounded.svg"></img>
+    </div>
+
+    <header>
+        <nav>
+            <a href="#kolya">Коля</a>
+            <a href="#feed">Лента</a>
+            <a href="#experience">Опыт</a>
+            <a href="#philosophy">Философия</a>
+            <!-- <a href="#inspiration">Вдохновение</a> -->
+            <!-- <a href="#books">Книги</a> -->
+            <!-- <a href="#like">Предпочтения</a> -->
+            <!-- <a href="#travel">Путешествия</a> -->
+            <!-- <a href="#photos">Фотографии</a> -->
+            <!-- <a href="#contacts"><em>Написать Коле</em></a> -->
+        </nav>
+    </header>
+
+    <div class="container">
+        
+        <div id="kolya" class="page-intro">
+            <video class="intro-circle" src="media/kolya-walk.mp4" autoplay muted loop></video>
+            <hgroup class="intro-text">
+                <h1><span class="cursor-zone" data-cursor-img="">Коля Ткаченко</span></h1>
+                <p>Дизайнер цифровых продуктов и коммуникаций. Влияю на опыт людей через эстетику, функцию и продуманные истории. Помогаю брендам и компаниям создавать впечатление, формировать смыслы и доносить сообщения до аудитории. </p>    
+            </hgroup>
+        </div>
+
+        <div class="card-group">
+            <div class="card-list">
+                <h3>Профессионально</h3>
+                <ul>
+                    <li>Проектирую сайты, сервисы и визуальные коммуникации</li>
+                    <li>Редактирую и пишу тексты</li>
+                    <li>Создаю несложную 2D/3D графику и анимацию</li>
+                    <li>Обрабатываю изображения</li>
+                    <li>Ковыряюсь в HTML, CSS и JS</li>
+                    <li>Реализую сайты на Tilda</li>
+                    <li>Интересуюсь маркетингом</li>
+                    <li>Общаюсь с ИИ</li>
+                </ul>
+            </div>
+            <div class="card-list">
+                <h3>Любительски</h3>
+                <ul>
+                    <li>Веду <a href="https://t.me/tkchnik" target="_blank">телеграм-канал</a></li>
+                    <li>Фотографирую</li>
+                    <li>Записываю диджей-миксы</li>
+                    <li>Читаю книги</li>
+                    <li>Занимаюсь спортом</li>
+                    <li>Смотрю фильмы и сериалы</li>
+                    <li>Играю в видеоигры</li>
+                    <li>Путешествую</li>
+                    <li>Составляю списки</li>
+                </ul>
+            </div>
+        </div>
+
+        <section id="feed">
+            <div class="masonry-grid">
+                <div class="grid-sizer"></div>
+
+                <div class="masonry-item">
+                    <div class="audio-item" data-src="audio/03 Ethnic House DJ Mix.mp3">
+                        <div class="feed-item-image">
+                            <img src="media/03-ethnic-house.jpg" alt="Обложка микса">
+                        </div>
+                        <div class="audio-item-title">
+                            <svg class="audio-item-play-icon" alt="Play icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m9.5 16.5l7-4.5l-7-4.5zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>             
+                            <svg class="audio-item-pause-icon" alt="Pause icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="M9 16h2V8H9zm4 0h2V8h-2zm-1 6q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
+                            <p class="feed-item-title audio-item-title">Ethnic House DJ Mix</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item">
+                    <div class="feed-item">
+                        <div class="feed-item-image">
+                            <video muted autoplay loop src="media/3d-falling-cubics.mp4" alt="Стеклянные кубики падают" pip="false">
+                        </div>
+                        <p class="feed-item-caption">Роняю кубики</p>
+                    </div>
+                </div>
+
+                <div class="masonry-item">
+                    <div class="feed-item-link">
+                        <a href="https://music.yandex.ru/album/36120320/track/137945765" target="_blank">
+                            <div class="feed-item-image">
+                                <img src="media/быть взрослым.png" alt="Обложка подкаста">
+                            </div>
+                            <p class="feed-item-title">Поговорил с друзьями про карьеру на подкасте «Быть взрослым»</p>
+                        </a>
+                        <p class="feed-item-caption">Кстати, обложку я нарисовал</p>
+                    </div>
+                </div>
+                
+                <div class="masonry-item">
+                    <div class="feed-item">
+                        <div class="feed-item-image">
+                            <video muted autoplay loop src="media/3d-rotating-sphere.mp4" alt="Сферы катаются по сфере" pip="false">
+                        </div>
+                        <p class="feed-item-caption">Катаю шары</p>
+                    </div>
+                </div>
+                
+                <div class="masonry-item">
+                    <div class="feed-item-link">
+                        <a href="https://t.me/tkchnik/650" target="_blank">
+                            <div class="feed-item-image">
+                                <img src="media/what-is-design.jpeg" alt="Инфографика: Что такое дизайн ">
+                            </div>
+                            <p class="feed-item-title">Мой взгляд на дизайн</p>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="masonry-item">
+                    <div class="audio-item" data-src="audio/02 Vibe House DJ Mix.mp3">
+                        <div class="feed-item-image">
+                            <img src="media/02-vibe-house.jpg" alt="Обложка микса">
+                        </div>
+                        <div class="audio-item-title">
+                            <svg class="audio-item-play-icon" alt="Play icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m9.5 16.5l7-4.5l-7-4.5zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>             
+                            <svg class="audio-item-pause-icon" alt="Pause icon" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="M9 16h2V8H9zm4 0h2V8h-2zm-1 6q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
+                            <p class="feed-item-title audio-item-title">Vibe House DJ Mix</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="masonry-item">
+                    <div class="feed-item">
+                        <div class="feed-item-image">
+                            <video muted autoplay loop src="media/3d-cage-sphere.mp4" alt="Абстрактная сфера крутится" pip="false">
+                        </div>
+                        <p class="feed-item-caption">Первые шаги в Blender</p>
+                    </div>
+                </div>
+
+                <div class="masonry-item">
+                    <div class="feed-item">
+                        <div class="feed-item-image">
+                            <img src="media/110design.jpeg" alt="Фото с выставки">
+                        </div>
+                        <p class="feed-item-title">Посетил выставку <a href="https://www.tretyakovgallery.ru/exhibitions/o/110-rossiyskiy-dizayn-1915-2025/" target="_blank">«110 | Российский дизайн 1915–2025»</a></p>
+                    </div>
+                </div>
+
+                <div class="masonry-item">
+                    <div class="audio-item" data-src="audio/01 Melodic DnB DJ Mix.mp3">
+                        <div class="feed-item-image">
+                            <img src="media/01-melodic-dnb.jpg" alt="Обложка микса">
+                        </div>
+                        <div class="audio-item-title">
+                            <svg class="audio-item-play-icon" alt="Воспроизведение" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="m9.5 16.5l7-4.5l-7-4.5zM12 22q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>             
+                            <svg class="audio-item-pause-icon" alt="Пауза" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><!-- Icon from Material Symbols by Google - https://github.com/google/material-design-icons/blob/master/LICENSE --><path fill="currentColor" d="M9 16h2V8H9zm4 0h2V8h-2zm-1 6q-2.075 0-3.9-.788t-3.175-2.137T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg>
+                            <p class="feed-item-title audio-item-title">Melodic DnB DJ Mix</p>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div class="masonry-item">
+                    <div class="feed-item">
+                        <div class="feed-item-image">
+                            <img src="media/artgorka.jpeg" alt="Моё первое место работы">
+                        </div>
+                        <p class="feed-item-title"><a href="https://artgorka.ru" target="_blank">Здесь</a> я 3 года формировался как дизайнер</p>
+                    </div>
+                </div>
+                    
+            </div>
+
+        </section>
+
+        <section id="experience">
+            <h2>4 года разнообразной дизайн-практики</h2>
+            <div class="work-place-container">
+                <div class="work-place">
+                    <div class="work-place-period">2025–</div>
+                    <div class="work-place-role">Ведущий веб-дизайнер <a href="https://pravo.tech" target="_blank">IT-компании ПравоТех</a></div>
+                </div>
+                <div class="work-place">
+                    <div class="work-place-period">2022–2025</div>
+                    <div class="work-place-role">Веб-дизайнер <a href="https://artgorka.ru" target="_blank">студии Art gorka</a></div>
+                </div>
+                <div class="work-place">
+                    <div class="work-place-period">2021–2022</div>
+                    <div class="work-place-role">Дизайнер SMM-отдела бизнес-консалтинговой компании</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="philosophy">
+            <h2>Позволяю себе не стать выдающимся дизайнером.</h2>
+            <div class="column-group">
+                <div class="column-unit">
+                    <p class="paragraph">Когда‑то в глубине души я хотел стать таким дизайнером, которого признают, одобряют и уважают в сообществе. Позже я осознал, что такие мысли меня фрустрируют и мешают получать удовольствие от того, что я делаю.</p>
+                    <p class="paragraph">Сейчас я позволяю себе не стать выдающимся дизайнером. Отказаться от гонки за этим призрачным статусом, но не переставать развиваться и работать над собой.</p>
+                    <p class="paragraph">Мне не нужны награды, победы на фестивалях и признание сообщества. Для меня важнее приносить пользу тем, до кого я могу дотянуться — людям, которых я встречаю по жизни.</p>
+                    <p class="paragraph">Я выбираю быть разносторонним создателем, который творит играючи. При этом не претендую на высокое искусство или безупречное мастерство, хоть и восхищаюсь им.</p>
+                    <p class="paragraph">Не делю свои увлечения на работу и хобби. Для меня это всё едино, никогда не знаешь, как тот или иной опыт синтезируется в нечто новое.</p>
+                    <p class="paragraph">Стараюсь смотреть на мир открыто и не вешать ярлыки ни на себя, ни на других. Искренне люблю делиться знаниями.</p>
+                </div>
+                <div class="column-unit">
+                    <p class="paragraph">Мною движет стремление помогать людям, улучшать их жизнь доступными мне способами и создавать красоту вокруг.</p>
+                    <p class="paragraph">Хочу развивать дизайн и профессиональное сообщество в родном регионе, потому что вижу в этом необходимость. Моё место здесь, но работать и сотрудничать я могу с кем угодно независимо от географического расположения.</p>
+                    <p class="paragraph">Своё предназначение я вижу в том, чтобы работать там, где с дизайном не всё хорошо. Это прослеживается в моём опыте: я работал в компаниях со слабой дизайн-культурой и пытался её взрастить, насколько это было мне под силу.</p>
+                    <p class="paragraph">Мне интереснее не толкаться со звёздами за место под солнцем, а созидать и улучшать то, мимо чего другие прошли. Я выбираю не соревнование за первенство, а помощь нуждающимся.</p>
+                    <p class="paragraph">Мастерство для меня не самоцель. Куда важнее то, какой вклад я сделал в жизни людей, а не в дизайн.</p>
+                </div>
+            </div>
+            
+        </section>
+
+        
+
+        <section id="fun-facts">
+            <p>09.09.2001</p>
+            <p>♍︎/♉︎/♎︎</p>
+            <p>INFJ-A</p>
+            <p>AB(IV)Rh+ </p>
+            <p>58°31′15″N 31°16′30″E</p>
+            <p>GMT+3</p>
+        </section>
+
+        <p style="font-size: 0.8em; margin-top: 1em; opacity: 0.4;">Задизайнено кодом совместно с ИИ</p>
+
+    </div>
+
+
+
+
+
+    
+</body>
+</html>

@@ -1,0 +1,136 @@
+/* Основные скругления через переменные */
+.plyr {
+    --plyr-color-main: var(--accent-color);
+    --plyr-audio-controls-background: transparent !important;
+    --plyr-border-radius: 0;
+    --plyr-control-radius: 0;
+    --plyr-menu-radius: 0;
+    --plyr-range-track-radius: 0;
+    --plyr-range-thumb-radius: 0;
+    --plyr-tooltip-radius: 0;
+
+    --plyr-control-spacing: 0;
+
+    --plyr-audio-controls-background: #ffffff;
+    --plyr-audio-control-background-hover: #ffffff;
+    --plyr-audio-control-color: var(--dark-color) ;
+    --plyr-audio-control-color-hover: var(--plyr-color-main);
+
+    --plyr-tooltip-background: #f0f0f0;
+    --plyr-tooltip-color: #000000;
+    --plyr-tooltip-shadow: none;
+    --plyr-tooltip-arrow-size: 6px;
+
+    --plyr-audio-progress-buffered-background: #e0e0e0;
+    --plyr-control-padding: 0;
+    --plyr-range-track-height: 4px;
+    --plyr-range-fill-background: var(--plyr-color-main);
+
+}
+
+.plyr__controls {
+  gap: 8px;
+}
+
+.plyr__control {
+    padding: 8px;
+}
+
+.plyr__progress__container {
+  padding-left: 8px !important;
+}
+
+.plyr__time {
+    margin-right: 8px;
+}
+
+.plyr__tooltip {
+    padding: 2px 6px ;
+}
+
+@media (max-width: 600px) {
+    .plyr__volume {
+      display: none;
+    }
+}
+
+/* .plyr__controls__item {
+    margin-left: 10px !important;
+} */
+
+
+/* Жесткий сброс для буфера */
+.plyr__progress__buffer {
+    border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
+    -moz-border-radius: 0px !important;
+  }
+  
+  /* Для WebKit-движков */
+  .plyr__progress__buffer::-webkit-progress-bar,
+  .plyr__progress__buffer::-webkit-progress-value {
+    border-radius: 0 !important;
+  }
+  
+  /* Для Firefox */
+  .plyr__progress__buffer::-moz-progress-bar {
+    border-radius: 0 !important;
+  }
+  
+  /* Атомарный перехват любых скруглений */
+  [class*="buffer"],
+  [class*="progress"] {
+    border-radius: 0 !important;
+  }
+
+
+
+/* Полный сброс стилей для всех range-инпутов в Plyr */
+.plyr input[type="range"] {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+  }
+  
+  /* WebKit (Chrome, Safari, Opera) */
+  .plyr input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none !important;
+    /* border-radius: 0 !important; */
+    width: 12px !important;
+    height: 12px !important;
+    /* background: var(--plyr-color-main) !important; */
+  }
+  
+  .plyr input[type="range"]::-webkit-slider-runnable-track {
+    -webkit-appearance: none !important;
+    border-radius: 0 !important;
+  }
+  
+  /* Firefox */
+  .plyr input[type="range"]::-moz-range-thumb {
+    border-radius: 0 !important;
+    width: 12px !important;
+    height: 12px !important;
+    /* background: var(--plyr-color-main) !important; */
+  }
+  
+  .plyr input[type="range"]::-moz-range-track {
+    border-radius: 0 !important;
+  }
+  
+  /* Edge */
+  .plyr input[type="range"]::-ms-thumb {
+    border-radius: 0 !important;
+  }
+  
+  .plyr input[type="range"]::-ms-track {
+    border-radius: 0 !important;
+  }
+  
+  /* Кастомные переменные для полного контроля */
+  .plyr {
+    --plyr-range-thumb-height: 12px !important;
+    --plyr-range-thumb-width: 12px !important;
+  }
