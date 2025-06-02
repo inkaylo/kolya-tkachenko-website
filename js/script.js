@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
             overlay.appendChild(content);
 
             // 4. Блокируем скролл страницы
-            document.body.classList.add('modal-no-scroll');
+            // document.body.classList.add('modal-no-scroll');
             
             // 5. Запускаем анимацию с небольшим таймаутом
             setTimeout(() => {

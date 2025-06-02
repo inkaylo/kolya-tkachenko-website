@@ -34,18 +34,8 @@ body {
     left: 0;
     pointer-events: none; /* Чтобы клики проходили сквозь canvas */
     z-index: 3;
-}
+    opacity: 0.3;
 
-#custom-cursor {
-    position: fixed;
-    width: 400px; /* Любой нужный размер */
-    height: 200px;
-    pointer-events: none; /* Чтобы клики проходили сквозь курсор */
-    z-index: 9999;
-    display: none;
-    background-size: contain;
-    background-repeat: no-repeat;
-    
     @media (max-width: 1160px) {
         display: none;
     }

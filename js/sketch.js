@@ -47,89 +47,65 @@
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  if(typeof p5 === 'function') {
-      new p5(function(p) {
-          let path = [];
-          let hue = 0; // Тон (0-360)
-          const saturation = 100; // Фиксированная насыщенность (%)
-          const brightness = 100; // Фиксированная яркость (%)
-          const alpha = 100; // Фиксированная прозрачность (0-255)
-          let lastMouseX = 0;
-          let lastMouseY = 0;
-          
-          p.setup = function() {
-              // Создаем canvas поверх всего контента
-              const canvas = p.createCanvas(p.windowWidth, p.windowHeight);
-              canvas.parent('drawing-canvas');
-              
-              // Настройки стилей canvas
-              canvas.style('position', 'fixed');
-              canvas.style('top', '0');
-              canvas.style('left', '0');
-              canvas.style('z-index', '9999');
-              canvas.style('pointer-events', 'none');
-              
-              // Переключаем в режим HSB
-              p.colorMode(p.HSB, 360, 100, 100, 255);
-              
-              // Прозрачный фон
-              p.background(0, 0);
-              p.noFill();
-              
-              // Генерируем начальный цвет
-              generateNewColor();
-          };
-          
-          function generateNewColor() {
-              // Случайный тон (0-360)
-              hue = p.random(360);
-          }
-          
-          p.draw = function() {
-              // Добавляем новые точки только при движении мыши
-              if (p.mouseX !== lastMouseX || p.mouseY !== lastMouseY) {
-                  // Рассчитываем расстояние от последней точки
-                  const distance = p.dist(lastMouseX, lastMouseY, p.mouseX, p.mouseY);
-                  
-                  // Интерполяция для плавности
-                  const steps = Math.max(1, Math.min(5, Math.floor(distance / 2)));
-                  for (let i = 0; i <= steps; i++) {
-                      const t = i / steps;
-                      const x = p.lerp(lastMouseX, p.mouseX, t);
-                      const y = p.lerp(lastMouseY, p.mouseY, t);
-                      path.push({x, y});
-                  }
-                  
-                  lastMouseX = p.mouseX;
-                  lastMouseY = p.mouseY;
-              }
-              
-              // Рисуем всю линию заново
-              p.clear();
-              if (path.length > 1) {
-                  p.beginShape();
-                  p.stroke(hue, saturation, brightness, alpha);
-                  p.strokeWeight(8);
-                  
-                  // Используем curveVertex для гладких кривых
-                  for (let i = 0; i < path.length; i++) {
-                      p.curveVertex(path[i].x, path[i].y);
-                  }
-                  p.endShape();
-              }
-          };
-          
-          p.mousePressed = function() {
-              // Очищаем canvas при клике и генерируем новый цвет
-              path = [];
-              generateNewColor();
-              p.clear();
-          };
-          
-          p.windowResized = function() {
-              p.resizeCanvas(p.windowWidth, p.windowHeight);
-          };
-      });
-  }
-});
+
+
+
+
+
+
+
+let currentHue;
+let isMouseMoving = false;
+let lastX, lastY;
+
+function setup() {
+    const canvas = createCanvas(windowWidth, windowHeight);
+    canvas.parent('drawing-canvas');
+    colorMode(HSB, 360, 100, 100);
+    // background(0, 0);
+    currentHue = random(360);
+    stroke(currentHue, 100, 100);
+    strokeWeight(6);
+    strokeJoin(ROUND);
+    strokeCap(ROUND);
+}
+
+function draw() {
+    // Рисуем только при движении мыши
+    if (isMouseMoving && !mouseIsPressed) {
+        if (dist(mouseX, mouseY, lastX, lastY) > 2) {
+            line(lastX, lastY, mouseX, mouseY);
+            lastX = mouseX;
+            lastY = mouseY;
+        }
+    }
+}
+
+function mouseMoved() {
+    // Инициализируем позицию рисования
+    if (!isMouseMoving) {
+        lastX = mouseX;
+        lastY = mouseY;
+        isMouseMoving = true;
+    }
+}
+
+function mouseClicked() {
+    clear();
+    // Сброс при клике
+    // background(0, 0);
+    currentHue = (currentHue + random(60, 300)) % 360;
+    stroke(currentHue, 100, 100);
+    isMouseMoving = false;
+}
+
+// function touchMoved() {
+//     // Для мобильных устройств
+//     mouseMoved();
+//     return false;
+// }
+
+function windowResized() {
+    resizeCanvas(windowWidth, windowHeight);
+    // background(0, 0);
+}
