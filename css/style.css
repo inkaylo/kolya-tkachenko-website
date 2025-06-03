@@ -4,8 +4,9 @@
 }
 
 :root {
-    --accent-color: #CB3600;;
+    --accent-color: #CB3600;
     --dark-color: #000000;
+    --light-color: #ffffff;
 }
 
 * {
@@ -13,13 +14,23 @@
     margin: 0;
 }
 
+::selection {
+    color: var(--light-color);
+    background-color: var(--accent-color);
+}
+
+::-moz-selection {
+    color: var(--light-color);
+    background-color: var(--accent-color);
+}
+
 html {
-    font-family: 'Even Mono', sans-serif;
-    font-size: 20px;
+    font-family: 'Liter', sans-serif;
+    font-size: 24px;
     scroll-behavior: smooth;
     
     @media (max-width: 900px){
-        font-size: 17px;
+        font-size: 20px;
     }
 }
 
@@ -33,8 +44,8 @@ body {
     top: 0;
     left: 0;
     pointer-events: none; /* Чтобы клики проходили сквозь canvas */
-    z-index: 3;
-    opacity: 0.3;
+    z-index: 9999;
+    opacity: 0.5;
 
     @media (max-width: 1160px) {
         display: none;
@@ -50,8 +61,8 @@ body {
     }
     
     nav a:hover {
-        text-decoration-color: rgba(0, 0, 0, 1);
-        background-color: var(--dark-color);
+        text-decoration-color: none;
+        background-color: var(--accent-color);
         color: #ffffff;
     }
 
@@ -111,12 +122,8 @@ audio, .plyr {
 
 header {
     position: fixed;
+    z-index: 10;
     font-size: 0.7em;
-    padding: 0.5em;
-
-    @media (max-width: 600px){
-        display: none;
-    }
 }
 
 nav {
@@ -124,10 +131,16 @@ nav {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.4em;
+    padding: 0.5em;
+
+    @media (max-width: 600px){
+        flex-direction: row;
+        gap: 0.8em;
+    }
 }
 
 a {
-    color: black;
+    color: var(--dark-color);
     text-decoration-thickness: 1px;
     text-decoration-skip-ink: none;
     text-underline-offset: 12%;
@@ -139,13 +152,17 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h3,h4,h5,h6 {
-    letter-spacing: -0.5px;
+    letter-spacing: -1px;
+}
+
+h1,h2,h3 {
+    font-family: 'Even Mono', monospace;
 }
 
 h1 {
     font-size: 4em;
     line-height: 1;
-    letter-spacing: -1.5px;
+    letter-spacing: -3px;
 
     @media (max-width: 600px){
         font-size: 3em;
@@ -153,8 +170,8 @@ h1 {
 }
 
 h2 {
-    font-size: 1.6em;
-    letter-spacing: -1px;
+    font-size: 1.75em;
+    letter-spacing: -2px;
     margin-bottom: 0.8em;
 }
 
@@ -174,6 +191,7 @@ section {
     margin: 0 auto;
     padding-left: 7.5em;
     padding-right: 1.5em;
+    max-width: 2560px;
 
     @media (max-width: 600px){
         padding: 0 1em;
@@ -186,7 +204,7 @@ section {
     column-gap: 2em;
     row-gap: 1em;
     padding: 2em 1.2em 2em;
-    align-items: center;
+    align-items: start;
 
     @media (max-width: 1160px){
         flex-direction: column;
@@ -196,7 +214,11 @@ section {
 
 .intro-circle {
     border-radius: 50%;
-    width: 200px;
+    width: 220px;
+
+    @media (max-width: 900px){
+        width: 160px;
+    }
 }
 
 .intro-text {
@@ -276,16 +298,16 @@ section {
     .masonry-item, .grid-sizer { width: calc((100% - 1em)/2); }
 }
 
-/* @media (max-width: 600px) {
+@media (max-width: 600px) {
     .masonry-item, .grid-sizer { width: 100%; }
-} */
+}
 
 
 .feed-item, .feed-item-link, .audio-item {
     font-size: 0.8em;
     display: flex;
     flex-direction: column;
-    gap: 0.35em;
+    gap: 0.3em;
     transform: translateZ(0); /* Аппаратное ускорение */
     backface-visibility: hidden; /* Исправление рендеринга */
     will-change: transform; /* Оптимизация анимации */
@@ -315,7 +337,7 @@ section {
 }
 
 .feed-item-title {
-    letter-spacing: -0.5px;
+    /* letter-spacing: -0.5px; */
 }
 
 .feed-item-caption {
@@ -382,7 +404,6 @@ section {
 
 .paragraph {
     font-size: 0.8em;
-    max-width: 800px;
     margin-bottom: 1em;
 }
 
@@ -399,13 +420,12 @@ section {
 }
 
 #fun-facts {
+    font-family: 'Even Mono', monospace;
     font-size: 0.8em;
     display: flex;
     gap: 1.5em;
     flex-wrap: wrap;
 }
-
-
 
 
 
@@ -438,9 +458,8 @@ section {
 .modal-content {
     width: 90vw;
     height: 90vh;
-    max-width: 1000px;
-    max-height: 1000px;
-    /* max-height: 600px; */
+    max-width: 1200px;
+    max-height: 1200px;
     transform: scale(0.9);
     opacity: 0;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
