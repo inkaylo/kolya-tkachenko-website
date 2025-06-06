@@ -101,16 +101,19 @@ function windowResized() {
 // let currentHue;
 // let isMouseMoving = false;
 // let lastX, lastY;
+// let strokeColor;
 
 // function setup() {
 //     const canvas = createCanvas(windowWidth, windowHeight);
 //     canvas.parent('drawing-canvas');
 //     colorMode(HSB, 360, 100, 100);
-//     currentHue = random(360);
-//     stroke(currentHue, 100, 100);
+//     strokeColor = color(random(360), 100, 85);
+//     stroke(strokeColor);
 //     strokeWeight(6);
 //     strokeJoin(ROUND);
 //     strokeCap(ROUND);
+
+//     updateAccentColor();
 // }
 
 // function draw() {
@@ -133,11 +136,28 @@ function windowResized() {
 //     }
 // }
 
-// function mouseClicked() {
+// function mousePressed() {
 //     clear();
-//     currentHue = (currentHue + random(60, 300)) % 360;
-//     stroke(currentHue, 100, 100);
+//     strokeColor = color(random(360), 100, 85);
+//     stroke(strokeColor);
 //     isMouseMoving = false;
+//     updateAccentColor();
+// }
+
+// function updateAccentColor() {
+//     const hexColor = hsbToHex(
+//         hue(strokeColor), 
+//         saturation(strokeColor), 
+//         brightness(strokeColor)
+//     );
+    
+//     // Обновляем CSS переменную
+//     document.documentElement.style.setProperty('--accent-color', hexColor);
+// }
+
+// function hsbToHex(h, s, b) {
+//     const rgb = color(h, s, b).levels;
+//     return `#${rgb[0].toString(16).padStart(2, '0')}${rgb[1].toString(16).padStart(2, '0')}${rgb[2].toString(16).padStart(2, '0')}`;
 // }
 
 // // function touchMoved() {

@@ -262,3 +262,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+
+// Скрипт для вкладок (табов)
+
+document.addEventListener('DOMContentLoaded', () => {
+    const tabs = document.querySelectorAll('.tabs-button');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            // Убираем активный класс у всех вкладок
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            // Добавляем активный класс текущей вкладке
+            tab.classList.add('active');
+            
+            // Скрываем все контентные панели
+            document.querySelectorAll('.tabs-panel').forEach(panel => {
+                panel.classList.remove('active');
+            });
+            
+            // Показываем выбранную панель
+            const tabId = tab.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+});

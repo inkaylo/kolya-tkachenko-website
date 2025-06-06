@@ -129,6 +129,15 @@ header {
     font-size: 0.7em;
     mix-blend-mode: difference;
     filter: invert(1);
+
+    @media (max-width: 600px){
+        width: 100%;
+        overflow-x: auto;
+    }
+}
+
+header::-webkit-scrollbar {
+    display: none;
 }
 
 nav {
@@ -141,8 +150,12 @@ nav {
     @media (max-width: 600px){
         flex-direction: row;
         gap: 0.8em;
+        padding: 0.5em 1.5em;
+        width: fit-content;
     }
 }
+
+
 
 a {
     color: var(--dark-color);
@@ -430,6 +443,60 @@ section {
     flex-wrap: wrap;
 }
 
+.tabs-header {
+    display: flex;
+    gap: 0.5em;
+    /* border-bottom: 1px solid #00000020; */
+}
+
+.tabs-button {
+    display: inline;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #00000020;
+    font-size: inherit;
+    font-family: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    padding: 0 0.1em;
+}
+
+.tabs-button:hover {
+    color: var(--accent-color);
+    border-color: var(--accent-color);
+}    
+
+.tabs-button.active {
+    background-color: var(--accent-color);
+    color: var(--light-color);
+}
+
+.tabs-panel {
+    display: none;
+    /* animation: fadeIn 0.3s ease; */
+}
+
+.tabs-panel ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1em;
+    padding-inline-start: 0;
+}
+
+.tabs-panel ul li {
+    list-style: none;
+}
+
+.tabs-panel.active {
+    display: block;
+}
+
+/* @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+} */
+
+
 
 
 
@@ -486,6 +553,8 @@ body.modal-no-scroll {
 .modal-overlay.active * {
     cursor: zoom-out;
 }
+
+
 
 
 
