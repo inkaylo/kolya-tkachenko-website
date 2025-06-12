@@ -74,6 +74,11 @@ function mousePressed() {
     updateAccentColor();
 }
 
+function hsbToHex(h, s, b) {
+    const rgb = color(h, s, b).levels;
+    return `#${rgb[0].toString(16).padStart(2, '0')}${rgb[1].toString(16).padStart(2, '0')}${rgb[2].toString(16).padStart(2, '0')}`;
+}
+
 function updateAccentColor() {
     const hexColor = hsbToHex(
         hue(strokeColor), 
@@ -84,12 +89,6 @@ function updateAccentColor() {
     // Обновляем CSS переменную
     document.documentElement.style.setProperty('--accent-color', hexColor);
 }
-
-function hsbToHex(h, s, b) {
-    const rgb = color(h, s, b).levels;
-    return `#${rgb[0].toString(16).padStart(2, '0')}${rgb[1].toString(16).padStart(2, '0')}${rgb[2].toString(16).padStart(2, '0')}`;
-}
-
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);

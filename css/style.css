@@ -464,6 +464,7 @@ section {
 .tabs-button:hover {
     color: var(--accent-color);
     border-color: var(--accent-color);
+    cursor: pointer;
 }    
 
 .tabs-button.active {
